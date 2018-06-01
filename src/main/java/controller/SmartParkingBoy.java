@@ -2,14 +2,14 @@ package controller;
 
 import java.util.List;
 
-import parkinglot.model.*;
+import parkinglot.model.Car;
+import parkinglot.model.Parkinglot;
 
-
-public class ParkinglotController {
+public class SmartParkingBoy implements ParkingBoy{
 	List<Parkinglot> parkinglotList;
 	
 	
-	public ParkinglotController(List<Parkinglot> parkinglotList){
+	public SmartParkingBoy(List<Parkinglot> parkinglotList){
 		this.parkinglotList=parkinglotList;			
 	}
 	

@@ -70,6 +70,9 @@ public class Parkinglot {
 	public int getVacancy() {
 		return vacancy;
 	}
+	public double getVacancyRate() {
+		return vacancy*1.0/size;
+	}
 	public String getName() {
 		return name;
 	}

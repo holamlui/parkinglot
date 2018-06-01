@@ -30,6 +30,7 @@ public class Parkinglot {
 		for(int i=0;i<parkingSpace.length;i++) {
 			if(parkingSpace[i]!=null && parkingSpace[i].getName().equals(name)) {
 				car = parkingSpace[i];
+				car.setParkingBoyName(null);
 				parkingSpace[i]=null;
 				vacancy++;
 			}
@@ -37,9 +38,10 @@ public class Parkinglot {
 		return car;
 	}
 	
-	public int parkCar(Car car, int position) {
+	public int parkCar(Car car, String parkingBoyName, int position) {
 		int result = NO_PARKING;
 		if (parkingSpace[position] == null) {
+			car.setParkingBoyName(parkingBoyName);
 			parkingSpace[position] = car;
 			vacancy--;
 			result = position;
@@ -47,10 +49,11 @@ public class Parkinglot {
 		return result;
 	}
 	
-	public int parkCar(Car car) {
+	public int parkCar(Car car, String parkingBoyName) {
 		int result = NO_PARKING;
 		int position = getAvailablePosition();
 		if (position != NO_PARKING) {
+			car.setParkingBoyName(parkingBoyName);
 			parkingSpace[position] = car;
 			vacancy--;
 			result = position;
@@ -76,5 +79,12 @@ public class Parkinglot {
 	}
 	public String getName() {
 		return name;
+	}
+	public void printCars() {
+		for(int i=0;i<parkingSpace.length;i++) {
+			if(parkingSpace[i]!=null) {
+				System.out.println(parkingSpace[i].getName()+" Parked By "+parkingSpace[i].getParkingBoyName());
+			}
+		}
 	}
 }

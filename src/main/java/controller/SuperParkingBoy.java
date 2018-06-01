@@ -6,7 +6,8 @@ import parkinglot.model.Car;
 import parkinglot.model.Parkinglot;
 
 public class SuperParkingBoy extends ParkingBoy{
-List<Parkinglot> parkinglotList;
+	String NAME = "SuperParkingBoy";
+	List<Parkinglot> parkinglotList;
 	
 	
 	public SuperParkingBoy(List<Parkinglot> parkinglotList){
@@ -20,7 +21,7 @@ List<Parkinglot> parkinglotList;
 				selected=parkinglotList.get(i);
 			}					
 		}		
-		return selected.parkCar(car)!=-1;		
+		return selected.parkCar(car, NAME)!=-1;		
 	}
 	public Car pickCar(String name) {
 		Car car=null;

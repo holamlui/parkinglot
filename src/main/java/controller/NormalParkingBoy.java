@@ -1,24 +1,37 @@
 package controller;
 
+import java.util.List;
+
 import parkinglot.model.Car;
 import parkinglot.model.Parkinglot;
 
 public class NormalParkingBoy extends ParkingBoy {
-	Parkinglot parkinglot;
+	String NAME = "NormalParkingBoy";
+	List<Parkinglot> parkinglotList;
 	
-	public NormalParkingBoy(Parkinglot parkinglot){
-		this.parkinglot=parkinglot;			
+	public NormalParkingBoy(List<Parkinglot> parkinglotList){
+		this.parkinglotList=parkinglotList;	
 	}
 	public boolean parkCar(Car car) {
-		return parkinglot.parkCar(car)!=-1;
+		int parkResult=-1;
+		for(int i=0;i<parkinglotList.size();i++) {
+			
+			parkResult = parkinglotList.get(i).parkCar(car, NAME);
+			if(parkResult!=-1){
+				break;
+			}
+		}
+		return parkResult!=-1;
 	}
-	public boolean parkCar(Car car, int position) {
-		return parkinglot.parkCar(car, position)!=-1;
-	}
+	
 	public Car pickCar(String name) {
-		return parkinglot.pickCar(name);
-	}
-	public Car pickCar(int position) {
-		return parkinglot.pickCar(position);
+		Car car=null;
+		for(int i=0;i<parkinglotList.size();i++) {	
+			car = parkinglotList.get(i).pickCar(name);
+			if(car!=null) {
+				break;		
+			}							
+		}
+		return car;
 	}
 }

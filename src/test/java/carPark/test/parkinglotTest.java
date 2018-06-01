@@ -38,5 +38,7 @@ public class parkinglotTest{
 	ParkinglotController parkinglotController = new ParkinglotController(parkinglotList);
 	Car myCar = new Car("name");
 	assertTrue(parkinglotController.parkCar(myCar));
+	Car myCar2 = parkinglotController.pickCar("name");
+	assertEquals("name",myCar2.getName());
 	}
 }

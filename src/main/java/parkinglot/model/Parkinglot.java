@@ -28,7 +28,7 @@ public class Parkinglot {
 	public Car pickCar(String name) {
 		Car car = null;
 		for(int i=0;i<parkingSpace.length;i++) {
-			if(parkingSpace[i].getName()==name) {
+			if(parkingSpace[i]!=null && parkingSpace[i].getName().equals(name)) {
 				car = parkingSpace[i];
 				vacancy++;
 			}

@@ -5,7 +5,7 @@ import java.util.List;
 import parkinglot.model.Car;
 import parkinglot.model.Parkinglot;
 
-public class SuperParkingBoy {
+public class SuperParkingBoy extends ParkingBoy{
 List<Parkinglot> parkinglotList;
 	
 	

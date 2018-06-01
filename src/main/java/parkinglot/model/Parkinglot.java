@@ -30,6 +30,7 @@ public class Parkinglot {
 		for(int i=0;i<parkingSpace.length;i++) {
 			if(parkingSpace[i]!=null && parkingSpace[i].getName().equals(name)) {
 				car = parkingSpace[i];
+				parkingSpace[i]=null;
 				vacancy++;
 			}
 		}

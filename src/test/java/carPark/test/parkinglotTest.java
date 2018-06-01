@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.junit.*;
 
+import controller.ParkingBoy;
+import controller.ParkingManager;
 import controller.SmartParkingBoy;
 import controller.SuperParkingBoy;
 import parkinglot.model.Car;
@@ -55,5 +57,21 @@ public class parkinglotTest{
 	parkingBoy.parkCar(new Car("car3"));
 	assertEquals(1,parkingBoy.getParkinglotList().get(0).getVacancy());
 	assertEquals(8,parkingBoy.getParkinglotList().get(1).getVacancy());
+	}
+	@Test
+	public void managerParkCar(){
+	Parkinglot smallParkingLot = new Parkinglot(2, "parkingLotA");
+	Parkinglot largeParkingLot = new Parkinglot(10, "parkingLotB");
+	List<Parkinglot> parkinglotList = new ArrayList<Parkinglot>();
+	parkinglotList.add(smallParkingLot);
+	parkinglotList.add(largeParkingLot);
+	List<ParkingBoy> parkingBoyList = new ArrayList<ParkingBoy>();
+	parkingBoyList.add(new SuperParkingBoy(parkinglotList));
+	parkingBoyList.add(new SmartParkingBoy(parkinglotList));
+	ParkingManager parkingManager = new ParkingManager(parkingBoyList,parkinglotList);
+	assertTrue(parkingManager.parkCar(new Car("car1")));
+	assertTrue(parkingManager.parkCar(new Car("car2")));
+	assertTrue(parkingManager.parkCar(new Car("car3")));
+	assertTrue(parkingManager.parkCar(new Car("car4")));
 	}
 }

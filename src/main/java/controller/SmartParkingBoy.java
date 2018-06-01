@@ -5,7 +5,7 @@ import java.util.List;
 import parkinglot.model.Car;
 import parkinglot.model.Parkinglot;
 
-public class SmartParkingBoy implements ParkingBoy{
+public class SmartParkingBoy{
 	List<Parkinglot> parkinglotList;
 	
 	
